@@ -6,25 +6,27 @@ This repository serves as a practical demonstration of Python ETL production pat
 
 ## System Architecture
 
-[ Open-Meteo Air Quality API ]  <-- (Scientific Telemetry Stream)
-|
-v  [ HTTP GET Request via Python 'requests' ]
-+-------------------------------------------------------+
-|                  pipeline.py Engine                   |
-|  - Extract: Grabs raw JSON payload for Boulder, CO    |
-|  - Transform: Validates types & computes features     |
-|  - Load: Performs parameterized SQL database upserts  |
-+-------------------------------------------------------+
-|
-+---> [ SQLite Database: aqi_atmospheric.db ]
-|        (Structured Relational Data Storage)
-|
-v
-+-------------------------------------------------------+
-|                test_pipeline.py Suite                 |
-|  - Programmatic Data Quality & Integrity Validation   |
-|  - Assertions: Target bounding boxes & value limits   |
-+-------------------------------------------------------+
+```text
+   [ Open-Meteo Air Quality API ]  <-- (Scientific Telemetry Stream)
+                 |
+                 v  [ HTTP GET Request via Python 'requests' ]
+        +-------------------------------------------------------+
+        |                  pipeline.py Engine                   |
+        |  - Extract: Grabs raw JSON payload for Boulder, CO    |
+        |  - Transform: Validates types & computes features     |
+        |  - Load: Performs parameterized SQL database upserts  |
+        +-------------------------------------------------------+
+                 |
+                 +---> [ SQLite Database: aqi_atmospheric.db ]
+                 |        (Structured Relational Data Storage)
+                 |
+                 v
+        +-------------------------------------------------------+
+        |                test_pipeline.py Suite                 |
+        |  - Programmatic Data Quality & Integrity Validation   |
+        |  - Assertions: Target bounding boxes & value limits   |
+        +-------------------------------------------------------+ ```
+
 
 ## Production Engineering Design Patterns Implemented
 
@@ -38,13 +40,8 @@ v
 
 ### Ingest Live Telemetry
 To execute the ETL script directly through the Linux command-line interface:
-```bash
-python3 pipeline.py
+bash python3 pipeline.py
 
 ### Run Data Quality Assurances 
 To trigger the automated testing framework and run validation assertions: 
-``` Bash 
-pytest test_pipeline.py 
-
-4. Save your updated `README.md` file (`Ctrl + S` or `Cmd + S`).
-5. Now, click back down into your **Terminal window** at the bottom to save this final piece of work to your GitHub profile[cite: 951]. Run these final 3 commands back-to-back:
+Bash pytest test_pipeline.py 
