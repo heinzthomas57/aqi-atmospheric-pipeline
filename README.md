@@ -25,7 +25,7 @@ This repository serves as a practical demonstration of Python ETL production pat
         |                test_pipeline.py Suite                 |
         |  - Programmatic Data Quality & Integrity Validation   |
         |  - Assertions: Target bounding boxes & value limits   |
-        +-------------------------------------------------------+ ```
+        +-------------------------------------------------------+ 
 
 
 ## Production Engineering Design Patterns Implemented
